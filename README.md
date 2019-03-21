@@ -12,7 +12,7 @@ You will be able to:
 * Save information to csv and Excel files
 * Access data within a Pandas DataFrame (print() and .head())
 
-# Loading Pandas
+## Loading Pandas
 
 As usual, we import pandas under the standard alias pd
 
@@ -21,14 +21,14 @@ As usual, we import pandas under the standard alias pd
 import pandas as pd
 ```
 
-# Importing Data
+## Importing Data
 
 There are a few main functions for importing data into a pandas DataFrame including:
 
-* pd.read_csv()
-* pd.read_excel()
-* pd.read_json()
-* pd.DataFrame.from_dict()
+* `pd.read_csv()`
+* `pd.read_excel()`
+* `pd.read_json()`
+* `pd.DataFrame.from_dict()`
 
 Most of these methods are fairly straightforward; you use `.read_csv()` for csv files, `.read_excel()` for excel files (both new and old .xlx and .xlsx) and `.read_json()` for json files. That said, there are a few nuances you should know about. The first is that the `.read_csv()` format can be used for any plain-text delimited file. This may include (but is not limited to) pipe (|) delimited files (.psv) and tab separated files (.tsv).
 
@@ -135,14 +135,14 @@ df.head()
 
 This example shows that the data was tab delimited (\t), so an appropriate file extension could have also been .tsv. Once we've loaded the dataset, we can export it to any format we would like with the related methods:
 
-* df.to_csv()
-* df.to_excel()
-* df.to_json()
-* df.to_dict()
+* `df.to_csv()`
+* `df.to_excel()`
+* `df.to_json()`
+* `df.to_dict()`
 
 There are also several other options available, but these are the most common.
 
-# Skipping and Limiting Rows
+## Skipping and Limiting Rows
 
 Another feature that you may have to employ is skipping rows when there is metadata stored at the top of a file. You can do this using the optional parameter `skiprows`. Similarly, if you want to only load a portion of a large file as an initial preview, you can use the `nrows` parameter.
 
@@ -614,7 +614,7 @@ df.head()
 
 
 
-# Header
+## Header
 
 Relatedly to skiprows is the header option. This specifies the row where column names are and starts the load from that point:
 
@@ -630,29 +630,29 @@ df.head()
     UnicodeDecodeError                        Traceback (most recent call last)
 
     pandas/_libs/parsers.pyx in pandas._libs.parsers.TextReader._convert_tokens (pandas\_libs\parsers.c:14858)()
-    
+
 
     pandas/_libs/parsers.pyx in pandas._libs.parsers.TextReader._convert_with_dtype (pandas\_libs\parsers.c:17119)()
-    
+
 
     pandas/_libs/parsers.pyx in pandas._libs.parsers.TextReader._string_convert (pandas\_libs\parsers.c:17347)()
-    
+
 
     pandas/_libs/parsers.pyx in pandas._libs.parsers._string_box_utf8 (pandas\_libs\parsers.c:23041)()
-    
+
 
     UnicodeDecodeError: 'utf-8' codec can't decode byte 0xf1 in position 2: invalid continuation byte
 
     
     During handling of the above exception, another exception occurred:
-    
+
 
     UnicodeDecodeError                        Traceback (most recent call last)
 
     <ipython-input-6-a2d61668e2c4> in <module>()
     ----> 1 df = pd.read_csv('Data/ACS_16_5YR_B24011_with_ann.csv', header=1)
           2 df.head()
-    
+
 
     ~\Anaconda3wenv\lib\site-packages\pandas\io\parsers.py in parser_f(filepath_or_buffer, sep, delimiter, header, names, index_col, usecols, squeeze, prefix, mangle_dupe_cols, dtype, engine, converters, true_values, false_values, skipinitialspace, skiprows, nrows, na_values, keep_default_na, na_filter, verbose, skip_blank_lines, parse_dates, infer_datetime_format, keep_date_col, date_parser, dayfirst, iterator, chunksize, compression, thousands, decimal, lineterminator, quotechar, quoting, escapechar, comment, encoding, dialect, tupleize_cols, error_bad_lines, warn_bad_lines, skipfooter, skip_footer, doublequote, delim_whitespace, as_recarray, compact_ints, use_unsigned, low_memory, buffer_lines, memory_map, float_precision)
         653                     skip_blank_lines=skip_blank_lines)
@@ -660,7 +660,7 @@ df.head()
     --> 655         return _read(filepath_or_buffer, kwds)
         656 
         657     parser_f.__name__ = name
-    
+
 
     ~\Anaconda3wenv\lib\site-packages\pandas\io\parsers.py in _read(filepath_or_buffer, kwds)
         409 
@@ -668,7 +668,7 @@ df.head()
     --> 411         data = parser.read(nrows)
         412     finally:
         413         parser.close()
-    
+
 
     ~\Anaconda3wenv\lib\site-packages\pandas\io\parsers.py in read(self, nrows)
        1003                 raise ValueError('skipfooter not supported for iteration')
@@ -676,7 +676,7 @@ df.head()
     -> 1005         ret = self._engine.read(nrows)
        1006 
        1007         if self.options.get('as_recarray'):
-    
+
 
     ~\Anaconda3wenv\lib\site-packages\pandas\io\parsers.py in read(self, nrows)
        1746     def read(self, nrows=None):
@@ -684,36 +684,36 @@ df.head()
     -> 1748             data = self._reader.read(nrows)
        1749         except StopIteration:
        1750             if self._first_chunk:
-    
+
 
     pandas/_libs/parsers.pyx in pandas._libs.parsers.TextReader.read (pandas\_libs\parsers.c:10862)()
-    
+
 
     pandas/_libs/parsers.pyx in pandas._libs.parsers.TextReader._read_low_memory (pandas\_libs\parsers.c:11138)()
-    
+
 
     pandas/_libs/parsers.pyx in pandas._libs.parsers.TextReader._read_rows (pandas\_libs\parsers.c:12175)()
-    
+
 
     pandas/_libs/parsers.pyx in pandas._libs.parsers.TextReader._convert_column_data (pandas\_libs\parsers.c:14136)()
-    
+
 
     pandas/_libs/parsers.pyx in pandas._libs.parsers.TextReader._convert_tokens (pandas\_libs\parsers.c:14972)()
-    
+
 
     pandas/_libs/parsers.pyx in pandas._libs.parsers.TextReader._convert_with_dtype (pandas\_libs\parsers.c:17119)()
-    
+
 
     pandas/_libs/parsers.pyx in pandas._libs.parsers.TextReader._string_convert (pandas\_libs\parsers.c:17347)()
-    
+
 
     pandas/_libs/parsers.pyx in pandas._libs.parsers._string_box_utf8 (pandas\_libs\parsers.c:23041)()
-    
+
 
     UnicodeDecodeError: 'utf-8' codec can't decode byte 0xf1 in position 2: invalid continuation byte
 
 
-# Encoding
+## Encoding
 
 Encoding errors like the one above are always frustrating. This has to do with how the strings within the file itself are formatted. The most common encoding other than `utf-8` that you are likely to come across is `latin-1`.
 
@@ -895,7 +895,7 @@ df.head()
 
 
 
-# Selecting Specific Columns  
+## Selecting Specific Columns  
 
 You can also specify specific columns if you only want to load specific features.
 
@@ -956,7 +956,7 @@ df.head(2)
 
 
 
-# Or
+## Or
 
 
 ```python
@@ -1006,7 +1006,7 @@ df.head(2)
 
 
 
-# Selecting Specific Sheets
+## Selecting Specific Sheets
 You can also specify specific sheets for Excel files!
 
 
@@ -1333,7 +1333,7 @@ df.head()
 
 
 
-# Loading a Full Workbook and Previewing Sheet Names
+## Loading a Full Workbook and Previewing Sheet Names
 You can also load an entire excel workbook (which is a collection of spreadsheets) with the `pd.ExcelFile()` method.
 
 
@@ -1458,8 +1458,8 @@ df.head()
 
 
 
-# Saving Data
-Once we have data loaded that we may want to export back out, we use the **.to_csv()** or **.to_excel()** methods of any dataframe object.
+## Saving Data
+Once we have data loaded that we may want to export back out, we use the **`.to_csv()`** or **`.to_excel()`** methods of any dataframe object.
 
 
 ```python
