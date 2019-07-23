@@ -14,7 +14,7 @@ You will be able to:
 
 ## Loading Pandas
 
-As usual, we import pandas under the standard alias pd
+When importing pandas, it is standard to import it under the alias `pd`
 
 
 ```python
@@ -37,24 +37,30 @@ Let's look at an example by investigating a file, bp.txt, stored in the Data fol
 
 ```python
 df = pd.read_csv('Data/bp.txt', delimiter='\t')
-df.head()
+```
+
+We've now loaded the data from a file into a DataFrame. To investigate the DataFrame, we can use a method called `head(n)` or `tail(n)`, which will respectively return first and last __n__ items in the DataFrame.
+
+
+```python
+df.head(3)
 ```
 
 
 
 
 <div>
-<style>
-    .dataframe thead tr:only-child th {
-        text-align: right;
-    }
-
-    .dataframe thead th {
-        text-align: left;
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
     }
 
     .dataframe tbody tr th {
         vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
     }
 </style>
 <table border="1" class="dataframe">
@@ -105,27 +111,92 @@ df.head()
       <td>72</td>
       <td>10</td>
     </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+```python
+df.tail(4)
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Pt</th>
+      <th>BP</th>
+      <th>Age</th>
+      <th>Weight</th>
+      <th>BSA</th>
+      <th>Dur</th>
+      <th>Pulse</th>
+      <th>Stress</th>
+    </tr>
+  </thead>
+  <tbody>
     <tr>
-      <th>3</th>
-      <td>4</td>
-      <td>117</td>
-      <td>50</td>
-      <td>94.7</td>
-      <td>2.01</td>
-      <td>5.8</td>
-      <td>73</td>
+      <th>16</th>
+      <td>17</td>
+      <td>106</td>
+      <td>46</td>
+      <td>87.0</td>
+      <td>1.87</td>
+      <td>3.6</td>
+      <td>62</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>18</td>
+      <td>113</td>
+      <td>46</td>
+      <td>94.5</td>
+      <td>1.90</td>
+      <td>4.3</td>
+      <td>70</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>19</td>
+      <td>110</td>
+      <td>48</td>
+      <td>90.5</td>
+      <td>1.88</td>
+      <td>9.0</td>
+      <td>71</td>
       <td>99</td>
     </tr>
     <tr>
-      <th>4</th>
-      <td>5</td>
-      <td>112</td>
-      <td>51</td>
-      <td>89.4</td>
-      <td>1.89</td>
+      <th>19</th>
+      <td>20</td>
+      <td>122</td>
+      <td>56</td>
+      <td>95.7</td>
+      <td>2.09</td>
       <td>7.0</td>
-      <td>72</td>
-      <td>95</td>
+      <td>75</td>
+      <td>99</td>
     </tr>
   </tbody>
 </table>
