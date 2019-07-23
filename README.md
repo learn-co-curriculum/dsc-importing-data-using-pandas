@@ -691,6 +691,7 @@ Relatedly to skiprows is the header option. This specifies the row where column 
 
 
 ```python
+# look at the error output once you run this cell. What type of error is it?
 df = pd.read_csv('Data/ACS_16_5YR_B24011_with_ann.csv', header=1)
 df.head()
 ```
