@@ -3,7 +3,9 @@
 
 ## Introduction
 
-We've already used Pandas to import data in previous lessons, but in this lesson we'll take a little longer to dive into what's actually going on.
+Pandas is a popular library for efficiently wrangling data. Pandas is particularly optimized to work with two-dimensional tabular data that is organized in rows and columns. In this lesson, you will learn how to import tabular data as a pandas DataFrame object, how to access and manipulate the data in DataFrame objects, and how to export DataFrames to some common file formats. 
+
+For more information on pandas, refer to https://pandas.pydata.org/pandas-docs/stable/
 
 ## Objectives
 You will be able to:
@@ -1545,4 +1547,4 @@ df.to_excel('NewSavedView.xlsx')
 
 ## Summary
 
-We've spent some time looking into how data importing with Pandas works and some of the methods you can use to manage the import and access the data. In the next lesson, lets get some hands on practice!
+We've spent some time looking into how data importing with Pandas works and some of the methods you can use to manage the import and access of data. In the next lesson, you'll get some hands on practice!
