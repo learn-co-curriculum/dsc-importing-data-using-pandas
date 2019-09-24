@@ -5,7 +5,7 @@
 
 Pandas is a popular library for efficiently wrangling data. Pandas is particularly optimized to work with two-dimensional tabular data that is organized in rows and columns. In this lesson, you will learn how to import tabular data as a pandas DataFrame object, how to access and manipulate the data in DataFrame objects, and how to export DataFrames to some common file formats. 
 
-For more information on pandas, refer to https://pandas.pydata.org/pandas-docs/stable/
+For more information on pandas, refer to https://pandas.pydata.org/pandas-docs/stable/ .
 
 ## Objectives
 You will be able to:
@@ -32,16 +32,16 @@ There are a few main functions for importing data into a pandas DataFrame includ
 * `pd.read_json()`
 * `pd.DataFrame.from_dict()`
 
-Most of these methods are fairly straightforward; you use `.read_csv()` for csv files, `.read_excel()` for excel files (both new and old .xlx and .xlsx) and `.read_json()` for json files. That said, there are a few nuances you should know about. The first is that the `.read_csv()` format can be used for any plain-text delimited file. This may include (but is not limited to) pipe (|) delimited files (.psv) and tab separated files (.tsv).
+Most of these methods are fairly straightforward; you use `read_csv()` for csv files, `read_excel()` for excel files (both new and old `.xlx` and `.xlsx` formats), and `read_json()` for json files. That said, there are a few nuances you should know about. The first is that the `read_csv()` format can be used for any plain-text delimited file. This may include (but is not limited to) pipe (|) delimited files (`.psv`) and tab separated files (`.tsv`).
 
-Let's look at an example by investigating a file, bp.txt, stored in the Data folder.
+Let's look at an example by investigating a file, `'bp.txt'`, stored in the `Data` folder.
 
 
 ```python
 df = pd.read_csv('Data/bp.txt', delimiter='\t')
 ```
 
-We've now loaded the data from a file into a DataFrame. To investigate the DataFrame, we can use a method called `head(n)` or `tail(n)`, which will respectively return first and last __n__ items in the DataFrame.
+We've now loaded the data from a file into a DataFrame. To investigate the DataFrame, we can use a method called `.head(n)` or `.tail(n)`, which will respectively return first and last __n__ items in the DataFrame.
 
 
 ```python
@@ -206,7 +206,7 @@ df.tail(4)
 
 
 
-This example shows that the data was tab delimited (\t), so an appropriate file extension could have also been .tsv. Once we've loaded the dataset, we can export it to any format we would like with the related methods:
+This example shows that the data was tab delimited (`\t`), so an appropriate file extension could have also been `.tsv`. Once we've loaded the dataset, we can export it to any format we would like with the related methods:
 
 * `df.to_csv()`
 * `df.to_excel()`
@@ -229,17 +229,17 @@ df.head()
 
 
 <div>
-<style>
-    .dataframe thead tr:only-child th {
-        text-align: right;
-    }
-
-    .dataframe thead th {
-        text-align: left;
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
     }
 
     .dataframe tbody tr th {
         vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
     }
 </style>
 <table border="1" class="dataframe">
@@ -411,17 +411,17 @@ df.head(2)
 
 
 <div>
-<style>
-    .dataframe thead tr:only-child th {
-        text-align: right;
-    }
-
-    .dataframe thead th {
-        text-align: left;
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
     }
 
     .dataframe tbody tr th {
         vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
     }
 </style>
 <table border="1" class="dataframe">
@@ -519,17 +519,17 @@ df.head()
 
 
 <div>
-<style>
-    .dataframe thead tr:only-child th {
-        text-align: right;
-    }
-
-    .dataframe thead th {
-        text-align: left;
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
     }
 
     .dataframe tbody tr th {
         vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
     }
 </style>
 <table border="1" class="dataframe">
@@ -689,7 +689,7 @@ df.head()
 
 ## Header
 
-Relatedly to skiprows is the header option. This specifies the row where column names are and starts the load from that point:
+Relatedly to `skiprows` is the `header` parameter. This specifies the row where column names are and starts importing data from that point:
 
 
 ```python
@@ -703,16 +703,16 @@ df.head()
 
     UnicodeDecodeError                        Traceback (most recent call last)
 
-    pandas/_libs/parsers.pyx in pandas._libs.parsers.TextReader._convert_tokens (pandas\_libs\parsers.c:14858)()
+    pandas/_libs/parsers.pyx in pandas._libs.parsers.TextReader._convert_tokens()
 
 
-    pandas/_libs/parsers.pyx in pandas._libs.parsers.TextReader._convert_with_dtype (pandas\_libs\parsers.c:17119)()
+    pandas/_libs/parsers.pyx in pandas._libs.parsers.TextReader._convert_with_dtype()
 
 
-    pandas/_libs/parsers.pyx in pandas._libs.parsers.TextReader._string_convert (pandas\_libs\parsers.c:17347)()
+    pandas/_libs/parsers.pyx in pandas._libs.parsers.TextReader._string_convert()
 
 
-    pandas/_libs/parsers.pyx in pandas._libs.parsers._string_box_utf8 (pandas\_libs\parsers.c:23041)()
+    pandas/_libs/parsers.pyx in pandas._libs.parsers._string_box_utf8()
 
 
     UnicodeDecodeError: 'utf-8' codec can't decode byte 0xf1 in position 2: invalid continuation byte
@@ -723,65 +723,66 @@ df.head()
 
     UnicodeDecodeError                        Traceback (most recent call last)
 
-    <ipython-input-6-a2d61668e2c4> in <module>()
-    ----> 1 df = pd.read_csv('Data/ACS_16_5YR_B24011_with_ann.csv', header=1)
-          2 df.head()
+    <ipython-input-8-bc49078dd840> in <module>
+          1 # look at the error output once you run this cell. What type of error is it?
+    ----> 2 df = pd.read_csv('Data/ACS_16_5YR_B24011_with_ann.csv', header=1)
+          3 df.head()
 
 
-    ~\Anaconda3wenv\lib\site-packages\pandas\io\parsers.py in parser_f(filepath_or_buffer, sep, delimiter, header, names, index_col, usecols, squeeze, prefix, mangle_dupe_cols, dtype, engine, converters, true_values, false_values, skipinitialspace, skiprows, nrows, na_values, keep_default_na, na_filter, verbose, skip_blank_lines, parse_dates, infer_datetime_format, keep_date_col, date_parser, dayfirst, iterator, chunksize, compression, thousands, decimal, lineterminator, quotechar, quoting, escapechar, comment, encoding, dialect, tupleize_cols, error_bad_lines, warn_bad_lines, skipfooter, skip_footer, doublequote, delim_whitespace, as_recarray, compact_ints, use_unsigned, low_memory, buffer_lines, memory_map, float_precision)
-        653                     skip_blank_lines=skip_blank_lines)
-        654 
-    --> 655         return _read(filepath_or_buffer, kwds)
-        656 
-        657     parser_f.__name__ = name
+    //anaconda3/lib/python3.7/site-packages/pandas/io/parsers.py in parser_f(filepath_or_buffer, sep, delimiter, header, names, index_col, usecols, squeeze, prefix, mangle_dupe_cols, dtype, engine, converters, true_values, false_values, skipinitialspace, skiprows, skipfooter, nrows, na_values, keep_default_na, na_filter, verbose, skip_blank_lines, parse_dates, infer_datetime_format, keep_date_col, date_parser, dayfirst, iterator, chunksize, compression, thousands, decimal, lineterminator, quotechar, quoting, doublequote, escapechar, comment, encoding, dialect, tupleize_cols, error_bad_lines, warn_bad_lines, delim_whitespace, low_memory, memory_map, float_precision)
+        700                     skip_blank_lines=skip_blank_lines)
+        701 
+    --> 702         return _read(filepath_or_buffer, kwds)
+        703 
+        704     parser_f.__name__ = name
 
 
-    ~\Anaconda3wenv\lib\site-packages\pandas\io\parsers.py in _read(filepath_or_buffer, kwds)
-        409 
-        410     try:
-    --> 411         data = parser.read(nrows)
-        412     finally:
-        413         parser.close()
+    //anaconda3/lib/python3.7/site-packages/pandas/io/parsers.py in _read(filepath_or_buffer, kwds)
+        433 
+        434     try:
+    --> 435         data = parser.read(nrows)
+        436     finally:
+        437         parser.close()
 
 
-    ~\Anaconda3wenv\lib\site-packages\pandas\io\parsers.py in read(self, nrows)
-       1003                 raise ValueError('skipfooter not supported for iteration')
-       1004 
-    -> 1005         ret = self._engine.read(nrows)
-       1006 
-       1007         if self.options.get('as_recarray'):
+    //anaconda3/lib/python3.7/site-packages/pandas/io/parsers.py in read(self, nrows)
+       1137     def read(self, nrows=None):
+       1138         nrows = _validate_integer('nrows', nrows)
+    -> 1139         ret = self._engine.read(nrows)
+       1140 
+       1141         # May alter columns / col_dict
 
 
-    ~\Anaconda3wenv\lib\site-packages\pandas\io\parsers.py in read(self, nrows)
-       1746     def read(self, nrows=None):
-       1747         try:
-    -> 1748             data = self._reader.read(nrows)
-       1749         except StopIteration:
-       1750             if self._first_chunk:
+    //anaconda3/lib/python3.7/site-packages/pandas/io/parsers.py in read(self, nrows)
+       1993     def read(self, nrows=None):
+       1994         try:
+    -> 1995             data = self._reader.read(nrows)
+       1996         except StopIteration:
+       1997             if self._first_chunk:
 
 
-    pandas/_libs/parsers.pyx in pandas._libs.parsers.TextReader.read (pandas\_libs\parsers.c:10862)()
+    pandas/_libs/parsers.pyx in pandas._libs.parsers.TextReader.read()
 
 
-    pandas/_libs/parsers.pyx in pandas._libs.parsers.TextReader._read_low_memory (pandas\_libs\parsers.c:11138)()
+    pandas/_libs/parsers.pyx in pandas._libs.parsers.TextReader._read_low_memory()
 
 
-    pandas/_libs/parsers.pyx in pandas._libs.parsers.TextReader._read_rows (pandas\_libs\parsers.c:12175)()
+    pandas/_libs/parsers.pyx in pandas._libs.parsers.TextReader._read_rows()
 
 
-    pandas/_libs/parsers.pyx in pandas._libs.parsers.TextReader._convert_column_data (pandas\_libs\parsers.c:14136)()
+    pandas/_libs/parsers.pyx in pandas._libs.parsers.TextReader._convert_column_data()
 
 
-    pandas/_libs/parsers.pyx in pandas._libs.parsers.TextReader._convert_tokens (pandas\_libs\parsers.c:14972)()
+    pandas/_libs/parsers.pyx in pandas._libs.parsers.TextReader._convert_tokens()
 
 
-    pandas/_libs/parsers.pyx in pandas._libs.parsers.TextReader._convert_with_dtype (pandas\_libs\parsers.c:17119)()
+    pandas/_libs/parsers.pyx in pandas._libs.parsers.TextReader._convert_with_dtype()
 
 
-    pandas/_libs/parsers.pyx in pandas._libs.parsers.TextReader._string_convert (pandas\_libs\parsers.c:17347)()
+    pandas/_libs/parsers.pyx in pandas._libs.parsers.TextReader._string_convert()
 
 
-    pandas/_libs/parsers.pyx in pandas._libs.parsers._string_box_utf8 (pandas\_libs\parsers.c:23041)()
+    pandas/_libs/parsers.pyx in pandas._libs.parsers._string_box_utf8()
 
 
     UnicodeDecodeError: 'utf-8' codec can't decode byte 0xf1 in position 2: invalid continuation byte
@@ -801,17 +802,17 @@ df.head()
 
 
 <div>
-<style>
-    .dataframe thead tr:only-child th {
-        text-align: right;
-    }
-
-    .dataframe thead th {
-        text-align: left;
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
     }
 
     .dataframe tbody tr th {
         vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
     }
 </style>
 <table border="1" class="dataframe">
@@ -983,17 +984,17 @@ df.head(2)
 
 
 <div>
-<style>
-    .dataframe thead tr:only-child th {
-        text-align: right;
-    }
-
-    .dataframe thead th {
-        text-align: left;
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
     }
 
     .dataframe tbody tr th {
         vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
     }
 </style>
 <table border="1" class="dataframe">
@@ -1030,7 +1031,7 @@ df.head(2)
 
 
 
-## Or
+**or**
 
 
 ```python
@@ -1042,17 +1043,17 @@ df.head(2)
 
 
 <div>
-<style>
-    .dataframe thead tr:only-child th {
-        text-align: right;
-    }
-
-    .dataframe thead th {
-        text-align: left;
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
     }
 
     .dataframe tbody tr th {
         vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
     }
 </style>
 <table border="1" class="dataframe">
@@ -1081,18 +1082,11 @@ df.head(2)
 
 
 ## Selecting Specific Sheets
-You can also specify specific sheets for Excel files!
+You can also specify specific sheets for Excel files! This can be done by index number. 
 
 
 ```python
-import pandas as pd
-```
-
-This can be done by index number
-
-
-```python
-df1 = pd.read_excel('Data/Yelp_Selected_Businesses.xlsx')
+df1 = pd.read_excel('Data/Yelp_Selected_Businesses.xlsx', header=2)
 df1.head()
 ```
 
@@ -1100,49 +1094,37 @@ df1.head()
 
 
 <div>
-<style>
-    .dataframe thead tr:only-child th {
-        text-align: right;
-    }
-
-    .dataframe thead th {
-        text-align: left;
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
     }
 
     .dataframe tbody tr th {
         vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
     }
 </style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>Unnamed: 0</th>
-      <th>Unnamed: 1</th>
-      <th>Unnamed: 2</th>
-      <th>Unnamed: 3</th>
-      <th>Unnamed: 4</th>
-      <th>Unnamed: 5</th>
-      <th>Unnamed: 6</th>
-      <th>Unnamed: 7</th>
-      <th>Unnamed: 8</th>
+      <th>business_id</th>
+      <th>cool</th>
+      <th>date</th>
+      <th>funny</th>
+      <th>review_id</th>
+      <th>stars</th>
+      <th>text</th>
+      <th>useful</th>
+      <th>user_id</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
-      <td>business_id</td>
-      <td>cool</td>
-      <td>date</td>
-      <td>funny</td>
-      <td>review_id</td>
-      <td>stars</td>
-      <td>text</td>
-      <td>useful</td>
-      <td>user_id</td>
-    </tr>
-    <tr>
-      <th>1</th>
       <td>RESDUcs7fIiihp38-d6_6g</td>
       <td>0</td>
       <td>2015-09-16</td>
@@ -1154,7 +1136,7 @@ df1.head()
       <td>SKteB5rgDlkkUa1Zxe1N0Q</td>
     </tr>
     <tr>
-      <th>2</th>
+      <th>1</th>
       <td>RESDUcs7fIiihp38-d6_6g</td>
       <td>0</td>
       <td>2017-09-09</td>
@@ -1166,7 +1148,7 @@ df1.head()
       <td>f638AHA_GoHbyDB7VFMz7A</td>
     </tr>
     <tr>
-      <th>3</th>
+      <th>2</th>
       <td>RESDUcs7fIiihp38-d6_6g</td>
       <td>0</td>
       <td>2013-01-14</td>
@@ -1178,7 +1160,7 @@ df1.head()
       <td>-wVPuTiIEG85LwTK46Prpw</td>
     </tr>
     <tr>
-      <th>4</th>
+      <th>3</th>
       <td>RESDUcs7fIiihp38-d6_6g</td>
       <td>0</td>
       <td>2017-02-08</td>
@@ -1189,6 +1171,18 @@ df1.head()
       <td>0</td>
       <td>A21zMqdN76ueLZFpmbue0Q</td>
     </tr>
+    <tr>
+      <th>4</th>
+      <td>RESDUcs7fIiihp38-d6_6g</td>
+      <td>0</td>
+      <td>2012-11-19</td>
+      <td>0</td>
+      <td>nq_-8lZPUVGomDEP5OOj1Q</td>
+      <td>1</td>
+      <td>After hearing all the buzz about this place, I...</td>
+      <td>2</td>
+      <td>Jf1EXieUV7F7s-HGA4EsdA</td>
+    </tr>
   </tbody>
 </table>
 </div>
@@ -1197,7 +1191,7 @@ df1.head()
 
 
 ```python
-df2 = pd.read_excel('Data/Yelp_Selected_Businesses.xlsx', sheet_name=2)
+df2 = pd.read_excel('Data/Yelp_Selected_Businesses.xlsx', sheet_name=2, header=2)
 df2.head()
 ```
 
@@ -1205,49 +1199,37 @@ df2.head()
 
 
 <div>
-<style>
-    .dataframe thead tr:only-child th {
-        text-align: right;
-    }
-
-    .dataframe thead th {
-        text-align: left;
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
     }
 
     .dataframe tbody tr th {
         vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
     }
 </style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>Unnamed: 0</th>
-      <th>Unnamed: 1</th>
-      <th>Unnamed: 2</th>
-      <th>Unnamed: 3</th>
-      <th>Unnamed: 4</th>
-      <th>Unnamed: 5</th>
-      <th>Unnamed: 6</th>
-      <th>Unnamed: 7</th>
-      <th>Unnamed: 8</th>
+      <th>business_id</th>
+      <th>cool</th>
+      <th>date</th>
+      <th>funny</th>
+      <th>review_id</th>
+      <th>stars</th>
+      <th>text</th>
+      <th>useful</th>
+      <th>user_id</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
-      <td>business_id</td>
-      <td>cool</td>
-      <td>date</td>
-      <td>funny</td>
-      <td>review_id</td>
-      <td>stars</td>
-      <td>text</td>
-      <td>useful</td>
-      <td>user_id</td>
-    </tr>
-    <tr>
-      <th>1</th>
       <td>YJ8ljUhLsz6CtT_2ORNFmg</td>
       <td>1</td>
       <td>2013-04-25</td>
@@ -1259,7 +1241,7 @@ df2.head()
       <td>6cpo8iqgnW3jnozhmY7eAA</td>
     </tr>
     <tr>
-      <th>2</th>
+      <th>1</th>
       <td>YJ8ljUhLsz6CtT_2ORNFmg</td>
       <td>0</td>
       <td>2014-07-07</td>
@@ -1271,7 +1253,7 @@ df2.head()
       <td>8bFE3u1dMoYXkS7ORqlssw</td>
     </tr>
     <tr>
-      <th>3</th>
+      <th>2</th>
       <td>YJ8ljUhLsz6CtT_2ORNFmg</td>
       <td>0</td>
       <td>2015-12-04</td>
@@ -1283,7 +1265,7 @@ df2.head()
       <td>bJmE1ms0MyZ6KHjmfZDWGw</td>
     </tr>
     <tr>
-      <th>4</th>
+      <th>3</th>
       <td>YJ8ljUhLsz6CtT_2ORNFmg</td>
       <td>2</td>
       <td>2016-07-06</td>
@@ -1293,6 +1275,18 @@ df2.head()
       <td>A complete Vegas experience. We arrived right ...</td>
       <td>3</td>
       <td>PbccpC-I-8rxzF2bCDh8YA</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>YJ8ljUhLsz6CtT_2ORNFmg</td>
+      <td>0</td>
+      <td>2014-04-15</td>
+      <td>0</td>
+      <td>1xlYVWhyLedoA0HddOJMOw</td>
+      <td>4</td>
+      <td>Very great atmosphere had a wonderful bartende...</td>
+      <td>0</td>
+      <td>yvlRColhqo_4TzpUFKyroA</td>
     </tr>
   </tbody>
 </table>
@@ -1304,7 +1298,7 @@ Or the name of the sheet itself
 
 
 ```python
-df = pd.read_excel('Data/Yelp_Selected_Businesses.xlsx', sheet_name='Biz_id_RESDU')
+df = pd.read_excel('Data/Yelp_Selected_Businesses.xlsx', sheet_name='Biz_id_RESDU', header=2)
 df.head()
 ```
 
@@ -1312,49 +1306,37 @@ df.head()
 
 
 <div>
-<style>
-    .dataframe thead tr:only-child th {
-        text-align: right;
-    }
-
-    .dataframe thead th {
-        text-align: left;
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
     }
 
     .dataframe tbody tr th {
         vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
     }
 </style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>Unnamed: 0</th>
-      <th>Unnamed: 1</th>
-      <th>Unnamed: 2</th>
-      <th>Unnamed: 3</th>
-      <th>Unnamed: 4</th>
-      <th>Unnamed: 5</th>
-      <th>Unnamed: 6</th>
-      <th>Unnamed: 7</th>
-      <th>Unnamed: 8</th>
+      <th>business_id</th>
+      <th>cool</th>
+      <th>date</th>
+      <th>funny</th>
+      <th>review_id</th>
+      <th>stars</th>
+      <th>text</th>
+      <th>useful</th>
+      <th>user_id</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
-      <td>business_id</td>
-      <td>cool</td>
-      <td>date</td>
-      <td>funny</td>
-      <td>review_id</td>
-      <td>stars</td>
-      <td>text</td>
-      <td>useful</td>
-      <td>user_id</td>
-    </tr>
-    <tr>
-      <th>1</th>
       <td>RESDUcs7fIiihp38-d6_6g</td>
       <td>0</td>
       <td>2015-09-16</td>
@@ -1366,7 +1348,7 @@ df.head()
       <td>SKteB5rgDlkkUa1Zxe1N0Q</td>
     </tr>
     <tr>
-      <th>2</th>
+      <th>1</th>
       <td>RESDUcs7fIiihp38-d6_6g</td>
       <td>0</td>
       <td>2017-09-09</td>
@@ -1378,7 +1360,7 @@ df.head()
       <td>f638AHA_GoHbyDB7VFMz7A</td>
     </tr>
     <tr>
-      <th>3</th>
+      <th>2</th>
       <td>RESDUcs7fIiihp38-d6_6g</td>
       <td>0</td>
       <td>2013-01-14</td>
@@ -1390,7 +1372,7 @@ df.head()
       <td>-wVPuTiIEG85LwTK46Prpw</td>
     </tr>
     <tr>
-      <th>4</th>
+      <th>3</th>
       <td>RESDUcs7fIiihp38-d6_6g</td>
       <td>0</td>
       <td>2017-02-08</td>
@@ -1401,6 +1383,18 @@ df.head()
       <td>0</td>
       <td>A21zMqdN76ueLZFpmbue0Q</td>
     </tr>
+    <tr>
+      <th>4</th>
+      <td>RESDUcs7fIiihp38-d6_6g</td>
+      <td>0</td>
+      <td>2012-11-19</td>
+      <td>0</td>
+      <td>nq_-8lZPUVGomDEP5OOj1Q</td>
+      <td>1</td>
+      <td>After hearing all the buzz about this place, I...</td>
+      <td>2</td>
+      <td>Jf1EXieUV7F7s-HGA4EsdA</td>
+    </tr>
   </tbody>
 </table>
 </div>
@@ -1408,7 +1402,7 @@ df.head()
 
 
 ## Loading a Full Workbook and Previewing Sheet Names
-You can also load an entire excel workbook (which is a collection of spreadsheets) with the `pd.ExcelFile()` method.
+You can also load an entire excel workbook (which is a collection of spreadsheets) with the `pd.ExcelFile()` function.
 
 
 ```python
@@ -1429,7 +1423,7 @@ workbook.sheet_names
 
 
 ```python
-df = workbook.parse(sheet_name=1)
+df = workbook.parse(sheet_name=1, header=2)
 df.head()
 ```
 
@@ -1437,49 +1431,37 @@ df.head()
 
 
 <div>
-<style>
-    .dataframe thead tr:only-child th {
-        text-align: right;
-    }
-
-    .dataframe thead th {
-        text-align: left;
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
     }
 
     .dataframe tbody tr th {
         vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
     }
 </style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>Unnamed: 0</th>
-      <th>Unnamed: 1</th>
-      <th>Unnamed: 2</th>
-      <th>Unnamed: 3</th>
-      <th>Unnamed: 4</th>
-      <th>Unnamed: 5</th>
-      <th>Unnamed: 6</th>
-      <th>Unnamed: 7</th>
-      <th>Unnamed: 8</th>
+      <th>business_id</th>
+      <th>cool</th>
+      <th>date</th>
+      <th>funny</th>
+      <th>review_id</th>
+      <th>stars</th>
+      <th>text</th>
+      <th>useful</th>
+      <th>user_id</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
-      <td>business_id</td>
-      <td>cool</td>
-      <td>date</td>
-      <td>funny</td>
-      <td>review_id</td>
-      <td>stars</td>
-      <td>text</td>
-      <td>useful</td>
-      <td>user_id</td>
-    </tr>
-    <tr>
-      <th>1</th>
       <td>4JNXUYY8wbaaDmk3BPzlWw</td>
       <td>0</td>
       <td>2012-06-10</td>
@@ -1491,7 +1473,7 @@ df.head()
       <td>fo4mpUqgXL2mJqALc9AvbA</td>
     </tr>
     <tr>
-      <th>2</th>
+      <th>1</th>
       <td>4JNXUYY8wbaaDmk3BPzlWw</td>
       <td>0</td>
       <td>2012-01-20</td>
@@ -1503,7 +1485,7 @@ df.head()
       <td>TVvTtXwPXsvrg2KJGoOUTg</td>
     </tr>
     <tr>
-      <th>3</th>
+      <th>2</th>
       <td>4JNXUYY8wbaaDmk3BPzlWw</td>
       <td>0</td>
       <td>2017-05-10</td>
@@ -1515,7 +1497,7 @@ df.head()
       <td>etbAVunw-4kwr6VTRweZpA</td>
     </tr>
     <tr>
-      <th>4</th>
+      <th>3</th>
       <td>4JNXUYY8wbaaDmk3BPzlWw</td>
       <td>0</td>
       <td>2014-05-03</td>
@@ -1526,6 +1508,18 @@ df.head()
       <td>0</td>
       <td>vKXux2Xx3xcicTgYZoR0pg</td>
     </tr>
+    <tr>
+      <th>4</th>
+      <td>4JNXUYY8wbaaDmk3BPzlWw</td>
+      <td>0</td>
+      <td>2014-06-04</td>
+      <td>0</td>
+      <td>7YNmSq7Lb1zi4SUKXaSjfg</td>
+      <td>5</td>
+      <td>Best steak in Vegas. Best mashed potatoes in V...</td>
+      <td>3</td>
+      <td>e3s1x4LLqfSkRTWDy_-Urg</td>
+    </tr>
   </tbody>
 </table>
 </div>
@@ -1533,7 +1527,7 @@ df.head()
 
 
 ## Saving Data
-Once we have data loaded that we may want to export back out, we use the **`.to_csv()`** or **`.to_excel()`** methods of any dataframe object.
+Once we have data loaded that we may want to export back out, we use the **`.to_csv()`** or **`.to_excel()`** methods of any DataFrame object.
 
 
 ```python
