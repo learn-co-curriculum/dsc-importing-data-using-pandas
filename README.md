@@ -3,20 +3,20 @@
 
 ## Introduction
 
-Pandas is a popular library for efficiently wrangling data. Pandas is particularly optimized to work with two-dimensional tabular data that is organized in rows and columns. In this lesson, you will learn how to import tabular data as a pandas DataFrame object, how to access and manipulate the data in DataFrame objects, and how to export DataFrames to some common file formats. 
+Pandas is a popular library for efficiently wrangling data. Pandas is particularly optimized to work with two-dimensional tabular data that is organized in rows and columns. In this lesson, you will learn how to import tabular data as a Pandas DataFrame object, how to access and manipulate the data in DataFrame objects, and how to export DataFrames to some common file formats. 
 
-For more information on pandas, refer to https://pandas.pydata.org/pandas-docs/stable/ .
+For more information on Pandas, refer to https://pandas.pydata.org/pandas-docs/stable/ .
 
 ## Objectives
 You will be able to:
-* Import data from csv files and Excel files
-* Understand and explain key arguments for imports
-* Save information to csv and Excel files
-* Access data within a Pandas DataFrame (print() and .head())
+- Import data from csv files and Excel files
+- Understand and explain key arguments for imports
+- Save information to csv and Excel files
+- Access data within a Pandas DataFrame (print() and .head())
 
 ## Loading Pandas
 
-When importing pandas, it is standard to import it under the alias `pd`
+When importing Pandas, it is standard to import it under the alias `pd`
 
 
 ```python
@@ -25,7 +25,7 @@ import pandas as pd
 
 ## Importing Data
 
-There are a few main functions for importing data into a pandas DataFrame including:
+There are a few main functions for importing data into a Pandas DataFrame including:
 
 * `pd.read_csv()`
 * `pd.read_excel()`
@@ -689,7 +689,7 @@ df.head()
 
 ## Header
 
-Relatedly to `skiprows` is the `header` parameter. This specifies the row where column names are and starts importing data from that point:
+Related to `skiprows` is the `header` parameter. This specifies the row where column names are and starts importing data from that point:
 
 
 ```python
@@ -972,7 +972,7 @@ df.head()
 
 ## Selecting Specific Columns  
 
-You can also specify specific columns if you only want to load specific features.
+You can also select specific columns if you only want to load specific features.
 
 
 ```python
@@ -1082,7 +1082,7 @@ df.head(2)
 
 
 ## Selecting Specific Sheets
-You can also specify specific sheets for Excel files! This can be done by index number. 
+You can also select specific sheets for Excel files! This can be done by index number. 
 
 
 ```python
