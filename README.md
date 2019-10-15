@@ -3,16 +3,14 @@
 
 ## Introduction
 
-Pandas is a popular library for efficiently wrangling data. Pandas is particularly optimized to work with two-dimensional tabular data that is organized in rows and columns. In this lesson, you will learn how to import tabular data as a Pandas DataFrame object, how to access and manipulate the data in DataFrame objects, and how to export DataFrames to some common file formats. 
+Pandas is a popular library for efficiently wrangling data. It is particularly optimized to work with two-dimensional tabular data that is organized in rows and columns. In this lesson, you will learn how to import tabular data as a Pandas DataFrame object, how to access and manipulate the data in DataFrame objects, and how to export DataFrames to some common file formats. 
 
 For more information on Pandas, refer to https://pandas.pydata.org/pandas-docs/stable/ .
 
 ## Objectives
-You will be able to:
-- Import data from csv files and Excel files
-- Understand and explain key arguments for imports
-- Save information to csv and Excel files
-- Access data within a Pandas DataFrame (print() and .head())
+You will be able to:  
+- Use pandas to import data from a CSV and and an Excel  spreadsheet  
+- Use pandas to export a DataFrame to a file
 
 ## Loading Pandas
 
@@ -32,12 +30,13 @@ There are a few main functions for importing data into a Pandas DataFrame includ
 * `pd.read_json()`
 * `pd.DataFrame.from_dict()`
 
-Most of these methods are fairly straightforward; you use `read_csv()` for csv files, `read_excel()` for excel files (both new and old `.xlx` and `.xlsx` formats), and `read_json()` for json files. That said, there are a few nuances you should know about. The first is that the `read_csv()` format can be used for any plain-text delimited file. This may include (but is not limited to) pipe (|) delimited files (`.psv`) and tab separated files (`.tsv`).
+Most of these functions are fairly straightforward; you use `read_csv()` for csv files, `read_excel()` for excel files (both new and old `.xlx` and `.xlsx` formats), and `read_json()` for json files. That said, there are a few nuances you should know about. The first is that the `read_csv()` format can be used for any plain-text delimited file. This may include (but is not limited to) pipe (|) delimited files (`.psv`) and tab separated files (`.tsv`).
 
 Let's look at an example by investigating a file, `'bp.txt'`, stored in the `Data` folder.
 
 
 ```python
+# Import 'bp.txt' file
 df = pd.read_csv('Data/bp.txt', delimiter='\t')
 ```
 
@@ -45,6 +44,7 @@ We've now loaded the data from a file into a DataFrame. To investigate the DataF
 
 
 ```python
+# Look at the first 3 rows
 df.head(3)
 ```
 
@@ -121,6 +121,7 @@ df.head(3)
 
 
 ```python
+# Look at the last 4 rows
 df.tail(4)
 ```
 
@@ -221,7 +222,10 @@ Another feature that you may have to employ is skipping rows when there is metad
 
 
 ```python
+# Import the first 100 rows of 'ACS_16_5YR_B24011_with_ann.csv' file
 df = pd.read_csv('Data/ACS_16_5YR_B24011_with_ann.csv', nrows=100)
+
+# Look at the first five rows
 df.head()
 ```
 
@@ -403,6 +407,7 @@ We could manually remove:
 
 
 ```python
+# Delete the first row
 df = df.drop(0)
 df.head(2)
 ```
@@ -511,6 +516,7 @@ Or if we knew from the start, we could use the skiprows argument:
 
 
 ```python
+# Import the first 100 rows of 'ACS_16_5YR_B24011_with_ann.csv' file while skipping the first row
 df = pd.read_csv('Data/ACS_16_5YR_B24011_with_ann.csv', skiprows=1, nrows=100)
 df.head()
 ```
@@ -693,7 +699,7 @@ Related to `skiprows` is the `header` parameter. This specifies the row where co
 
 
 ```python
-# look at the error output once you run this cell. What type of error is it?
+# Look at the error output once you run this cell. What type of error is it?
 df = pd.read_csv('Data/ACS_16_5YR_B24011_with_ann.csv', header=1)
 df.head()
 ```
@@ -794,6 +800,7 @@ Encoding errors like the one above are always frustrating. This has to do with h
 
 
 ```python
+# Import the 'ACS_16_5YR_B24011_with_ann.csv' file using a proper encoding
 df = pd.read_csv('Data/ACS_16_5YR_B24011_with_ann.csv', header=1, encoding='latin-1')
 df.head()
 ```
@@ -976,7 +983,9 @@ You can also select specific columns if you only want to load specific features.
 
 
 ```python
-df = pd.read_csv('Data/ACS_16_5YR_B24011_with_ann.csv', usecols=[0,1,2,5,6], encoding='latin-1')
+# Import the file with specific columns
+df = pd.read_csv('Data/ACS_16_5YR_B24011_with_ann.csv', 
+                 usecols=[0, 1, 2, 5, 6], encoding='latin-1')
 df.head(2)
 ```
 
@@ -1035,6 +1044,7 @@ df.head(2)
 
 
 ```python
+# Import the file with specific columns
 df = pd.read_csv('Data/ACS_16_5YR_B24011_with_ann.csv', usecols=['GEO.id', 'GEO.id2'], encoding='latin-1')
 df.head(2)
 ```
@@ -1086,6 +1096,7 @@ You can also select specific sheets for Excel files! This can be done by index n
 
 
 ```python
+# Import an Excel file
 df1 = pd.read_excel('Data/Yelp_Selected_Businesses.xlsx', header=2)
 df1.head()
 ```
@@ -1191,6 +1202,7 @@ df1.head()
 
 
 ```python
+# Import a specific sheet of an Excel file
 df2 = pd.read_excel('Data/Yelp_Selected_Businesses.xlsx', sheet_name=2, header=2)
 df2.head()
 ```
@@ -1298,6 +1310,7 @@ Or the name of the sheet itself
 
 
 ```python
+# Import a specific sheet of an Excel file
 df = pd.read_excel('Data/Yelp_Selected_Businesses.xlsx', sheet_name='Biz_id_RESDU', header=2)
 df.head()
 ```
@@ -1406,6 +1419,7 @@ You can also load an entire excel workbook (which is a collection of spreadsheet
 
 
 ```python
+# Import the names of Excel sheets in a workbook
 workbook = pd.ExcelFile('Data/Yelp_Selected_Businesses.xlsx')
 workbook.sheet_names
 ```
@@ -1423,6 +1437,7 @@ workbook.sheet_names
 
 
 ```python
+# Import a specific sheet
 df = workbook.parse(sheet_name=1, header=2)
 df.head()
 ```
@@ -1531,11 +1546,14 @@ Once we have data loaded that we may want to export back out, we use the **`.to_
 
 
 ```python
-df.to_csv('NewSavedView.csv', index=False) #Notice how we have to pass index=False if we do not want it included in our output
+# Write data to a CSV file 
+# Notice how we have to pass index=False if we do not want it included in our output
+df.to_csv('NewSavedView.csv', index=False) 
 ```
 
 
 ```python
+# Write data to an Excel file 
 df.to_excel('NewSavedView.xlsx')
 ```
 
