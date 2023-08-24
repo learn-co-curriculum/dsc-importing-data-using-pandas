@@ -10,7 +10,7 @@ For more information on Pandas, refer to https://pandas.pydata.org/pandas-docs/s
 
 You will be able to:  
 
-- Use pandas to import data from a CSV and and an Excel spreadsheet
+- Use pandas to import data from a CSV and an Excel spreadsheet
 - Use pandas to export a DataFrame to a file
 
 ## Loading Pandas
