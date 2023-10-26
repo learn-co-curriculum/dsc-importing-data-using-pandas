@@ -1093,7 +1093,7 @@ df.head(2)
 
 
 ## Selecting Specific Sheets
-You can also select specific sheets for Excel files! This can be done by index number. 
+You can also select specific sheets for Excel files. This can be done by index number. 
 
 
 ```python
@@ -1560,4 +1560,4 @@ df.to_excel('NewSavedView.xlsx')
 
 ## Summary
 
-We've spent some time looking into how data importing with Pandas works and some of the methods you can use to manage the import and access of data. In the next lesson, you'll get some hands on practice!
+We've spent some time looking into how data importing with Pandas works and some of the methods you can use to manage the import and access of data.
